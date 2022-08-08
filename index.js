@@ -1,6 +1,8 @@
 const Express = require("express");
 const userRouters = require("./routes/user.js");
 const loginRouters = require("./routes/login.js");
+const articleRouters = require("./routes/article.js");
+
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -12,6 +14,8 @@ app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 app.use('/user', userRouters);
 app.use('/login', loginRouters);
+app.use('/article', articleRouters);
+
 
 app.get("/", (req, res) => {
     res.send("Hello World");

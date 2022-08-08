@@ -10,32 +10,32 @@ let up = async (queryInterface, Sequelize) => {
       type: Sequelize.INTEGER
     },
     name: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false
     },
     email: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false
     },
     password: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false
     },
     username: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false
     },
     age: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     createdAt: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false,
       defaultValue: Date.now().valueOf()
     },
     updatedAt: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: true,
       defaultValue: Date.now().valueOf()
     }
@@ -48,4 +48,4 @@ let down = async (queryInterface, Sequelize) => {
 }
 
 
-export { up, down };
+module.exports = { up, down };

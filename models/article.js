@@ -1,36 +1,32 @@
-
 const { db } = require('../models/config.js');
 const { Model, DataTypes } = require('sequelize');
-// const { Article } = require('./article.js');
+// const { User } = require('../models/user.js');
 
 
-class User extends Model { }
 
-User.init({
+class Article extends Model { }
+
+Article.init({
     id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
     },
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    age: {
+    id_user: {
         type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'User',
+            key: 'id'
+        }
+    },
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    content: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     createdAt: {
@@ -45,17 +41,17 @@ User.init({
     }
 }, {
     sequelize: db,
-    modelName: 'User',
-    tableName: 'users',
+    modelName: 'Article',
+    tableName: 'articles',
     timestamps: false
 });
 
-// User.associate = function (models) {
-//     User.hasMany(models.articles, {
+// Article.associate = function (models) {
+//     Article.belongsTo(models.users, {
 //         foreignKey: 'id_user',
 //     });
 // }
 
-// User.Articles = User.hasMany(Article, { foreignKey: 'id_user', as: 'Articles' });
+// Article.User = Article.belongsTo(User, { foreignKey: 'id_user', as: 'User' });
 
-module.exports = { User };
+module.exports = { Article };
