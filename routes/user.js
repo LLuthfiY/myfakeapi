@@ -1,5 +1,5 @@
-import { getAll, getOne, remove, create, update } from "../controllers/user.js";
-import { Router } from "express";
+const { getAll, getOne, remove, create, update } = require("../controllers/user.js");
+const { Router } = require("express");
 
 const router = Router();
 
@@ -9,4 +9,4 @@ router.post("/", create);
 router.put("/:id", update);
 router.delete("/:id", remove);
 
-export default router;
+module.exports = router;

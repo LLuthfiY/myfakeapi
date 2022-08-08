@@ -1,4 +1,4 @@
-import { User } from '../models/user.js';
+const { User } = require('../models/user.js');
 
 const getAll = async (req, res) => {
     User.findAll().then(users => {
@@ -16,7 +16,8 @@ const getOne = async (req, res) => {
             id: req.params.id
         }
     }).then(user => {
-        res.json(user);
+        if (user) { res.json(user); }
+        else { res.status(400).json(err); }
     }
     ).catch(err => {
         res.status(400).json(err);
@@ -25,7 +26,10 @@ const getOne = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    User.create(req.body).then(user => {
+    User.create({
+        createdAt: Date.now().valueOf(),
+        ...req.body
+    }).then(user => {
         res.json(user);
     }
     ).catch(err => {
@@ -43,7 +47,8 @@ const update = async (req, res) => {
             id: req.params.id
         }
     }).then(user => {
-        res.json(user);
+        if (user) { res.json(user); }
+        else { res.status(400).json(err); }
     }
     ).catch(err => {
         res.status(400).json(err);
@@ -57,7 +62,8 @@ const remove = async (req, res) => {
             id: req.params.id
         }
     }).then(user => {
-        res.json(user);
+        if (user) { res.json(user); }
+        else { res.status(400).json(err); }
     }
     ).catch(err => {
         res.status(400).json(err);
@@ -65,4 +71,10 @@ const remove = async (req, res) => {
     );
 }
 
-export { getAll, getOne, create, update, remove };
+module.exports = {
+    getAll,
+    getOne,
+    create,
+    update,
+    remove
+}

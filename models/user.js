@@ -1,13 +1,15 @@
-import { db as DB } from '../models/config.js';
-import { Model, DataTypes } from 'sequelize';
+
+const { db } = require('../models/config.js');
+const { Model, DataTypes } = require('sequelize');
 
 class User extends Model { }
 
 User.init({
     id: {
-        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
+        type: DataTypes.INTEGER
     },
     name: {
         type: DataTypes.STRING,
@@ -40,11 +42,11 @@ User.init({
         defaultValue: Date.now().valueOf()
     }
 }, {
-    sequelize: DB,
+    sequelize: db,
     modelName: 'User',
     tableName: 'users',
     timestamps: false
 });
 
 
-export { User };
+module.exports = { User };
