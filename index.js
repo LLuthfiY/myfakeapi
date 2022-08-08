@@ -10,7 +10,10 @@ app.use(Express.urlencoded({ extended: true }));
 app.use('/user', userRouters);
 app.use('/login', loginRouters);
 
-
+app.get("/", (req, res) => {
+    res.send("Hello World");
+}
+);
 const port = process.env.PORT || 4245;
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
