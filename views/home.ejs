@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="/tachyon.css">
+<link rel="stylesheet" href="/style.css">
+
+<body class=" bg-granite-gray flex">
+    <%- include('./partials/sidebar/sidebar.ejs', { data }) %>
+    <main class=" flex-grow-1">
+        <%- include('./partials/content/content.ejs', { section : data.user }) %>
+    </main>
+</body>

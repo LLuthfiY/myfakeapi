@@ -50,12 +50,4 @@ User.init({
     timestamps: false
 });
 
-// User.associate = function (models) {
-//     User.hasMany(models.articles, {
-//         foreignKey: 'id_user',
-//     });
-// }
-
-// User.Articles = User.hasMany(Article, { foreignKey: 'id_user', as: 'Articles' });
-
 module.exports = { User };

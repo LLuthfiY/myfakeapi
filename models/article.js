@@ -46,12 +46,4 @@ Article.init({
     timestamps: false
 });
 
-// Article.associate = function (models) {
-//     Article.belongsTo(models.users, {
-//         foreignKey: 'id_user',
-//     });
-// }
-
-// Article.User = Article.belongsTo(User, { foreignKey: 'id_user', as: 'User' });
-
 module.exports = { Article };

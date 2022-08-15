@@ -1,0 +1,162 @@
+@import '/font/bootstrap-icons.css';
+
+
+/* Color Text */
+
+.bg-ierie-black {
+    background-color: #1e1d17;
+}
+
+.bg-dark-lava {
+    background-color: #4a402b;
+}
+
+.bg-beaver {
+    background-color: #9d916b;
+}
+
+.bg-dark-vanilla {
+    background-color: #c1c0a4;
+}
+
+.bg-alice-blue {
+    background-color: #f2fafa;
+}
+
+.bg-dark-khahi {
+    background-color: #b5bf6e;
+}
+
+.bg-granite-gray {
+    background-color: #67656a;
+}
+
+bg-deep-koamaru {
+    background-color: #2f4064;
+}
+
+.bg-lapiz-lazuli {
+    background-color: #256696;
+}
+
+.bg-cyan-conflower-blue {
+    background-color: #2696bf;
+}
+
+.ierie-black {
+    color: #1e1d17;
+}
+
+.dark-lava {
+    color: #4a402b;
+}
+
+.beaver {
+    color: #9d916b;
+}
+
+.dark-vanilla {
+    color: #c1c0a4;
+}
+
+.alice-blue {
+    color: #f2fafa;
+}
+
+.dark-khahi {
+    color: #b5bf6e;
+}
+
+.granite-gray {
+    color: #67656a;
+}
+
+.deep-koamaru {
+    color: #2f4064;
+}
+
+.lapiz-lazuli {
+    color: #256696;
+}
+
+.cyan-conflower-blue {
+    color: #2696bf;
+}
+
+/* margin */
+.ma-a {
+    margin: auto;
+}
+
+.mh-a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mv-a {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* sidebar */
+
+main {
+    margin-left: 4rem;
+}
+
+.sidebar {
+    width: 4rem;
+}
+
+.sidebar-button {
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-button:hover {
+    background-color: #1e1d17;
+    color: whitesmoke;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-button.active {
+    background-color: #1e1d17;
+    color: whitesmoke;
+    transition: all 0.3s ease-in-out;
+}
+
+/* methods */
+.methods {
+    width: 100px;
+}
+
+.methods-get {
+    background-color: #2696bf;
+}
+
+.methods-post {
+    background-color: #67c0ae;
+}
+
+.methods-put {
+    background-color: #26bf6b;
+}
+
+.methods-delete {
+    background-color: #e33140;
+}
+
+.get {
+    color: #2696bf;
+}
+
+.post {
+    color: #67c0ae;
+}
+
+.put {
+    color: #26bf6b;
+}
+
+.delete {
+    color: #e33140;
+}
