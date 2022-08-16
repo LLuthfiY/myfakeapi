@@ -6,6 +6,8 @@ This is a fake api for testing purposes.
 
 Link to the api: [https://myfakeapi.herokuapp.com/](https://myfakeapi.herokuapp.com/)
 
+---
+
 ## Endpoints
 
 ### User
@@ -20,6 +22,8 @@ Link to the api: [https://myfakeapi.herokuapp.com/](https://myfakeapi.herokuapp.
 ###### Login
 
 - [x] POST /login
+
+---
 
 ### Article
 ###### Article
