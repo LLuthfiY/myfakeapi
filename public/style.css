@@ -160,3 +160,25 @@ main {
 .delete {
     color: #e33140;
 }
+
+/* hover */
+
+button.openReq:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+}
+
+/* pre */
+.show-request {
+    background-color: #1e1d17;
+    color: whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+    height: 300px;
+    max-width: 100px;
+    min-width: 100%;
+
+}
+
+/* body * {
+    background-color: rgba(0, 0, 0, 0.1);
+} */

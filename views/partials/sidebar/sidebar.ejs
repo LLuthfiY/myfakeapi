@@ -3,7 +3,7 @@
     let renderList = {}
 </script>
 
-<aside class="fixed-l fixed-m sidebar h-100 bg-black-20">
+<aside class="fixed-l fixed-m sidebar h-100 bg-granite-gray br b--black-30 bw1">
     <%- include('../../logo/logo.ejs') %>
     <div class=" flex flex-column mv4">
         <% for(const section in data ) { %>
@@ -11,29 +11,11 @@
             class="sidebar-button bg-transparent bw0 f4 center pa2 ierie-black pointer br2 mv2-l mv2-m <%= section.toLowerCase() === 'user' ? "active " : "" %> "
             onclick="sidebar_button_handler(this)"><i class="bi <%= data[section].logo %>"></i></button>
         <script>
-            renderList['<%= section %>'] = ejs.render(`<%- include('../content/content.ejs',
+            renderList['<%= section %>'] = `<%- include('../content/content.ejs',
                 {
                     section :  data[section]
-                }) %>`);
+                }) %>`;
         </script>
         <% } %>
     </div>
 </aside>
-
-<script>
-    let data = '<%- JSON.stringify(data) %>';
-    const sidebar_button_handler = (e) => {
-        const button = e;
-        remove_active_class_from_all_buttons();
-        const content = document.getElementsByTagName('main')[0];
-        content.innerHTML = renderList[button.dataset.model];
-        button.classList.add('active');
-    }
-
-    const remove_active_class_from_all_buttons = () => {
-        const buttons = document.getElementsByClassName('sidebar-button');
-        for (const button of buttons) {
-            button.classList.remove('active');
-        }
-    }
-</script>

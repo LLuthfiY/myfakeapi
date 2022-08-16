@@ -1,6 +1,6 @@
 <div class="flex flex-column mv4l mv4-m mh4-l mh4-m">
     <h2 class=" code dark-vanilla"><i class=" bi <%= section.logo%>"></i> <%= section.title %> </h2>
-    <div class="flex-grow-1">
+    <div class="">
         <% for( const models in section.models ) { %>
         <%- include('./partials/models.ejs', { model: section.models[models], modelName: models }) %>
         <% } %>

@@ -7,3 +7,61 @@
         <%- include('./partials/content/content.ejs', { section : data.user }) %>
     </main>
 </body>
+
+<script>
+    let data = '<%- JSON.stringify(data) %>';
+    const sidebar_button_handler = (e) => {
+        const button = e;
+        remove_active_class_from_all_buttons();
+        const content = document.getElementsByTagName('main')[0];
+        content.innerHTML = renderList[button.dataset.model]
+        button.classList.add('active');
+    }
+
+    const remove_active_class_from_all_buttons = () => {
+        const buttons = document.getElementsByClassName('sidebar-button');
+        for (const button of buttons) {
+            button.classList.remove('active');
+        }
+    }
+
+    const reqButtonHandler = (e) => {
+        const button = e;
+        const text = "";
+        const container = button.parentElement.parentElement.getElementsByClassName('request-container')[0];
+        const pre_success = container.getElementsByClassName('request-success')[0].getElementsByClassName('show-request')[0];
+        const pre_failed = container.getElementsByClassName('request-failed')[0].getElementsByClassName('show-request')[0];
+
+        let url_success = button.parentElement.getElementsByTagName('p')[0].innerText;
+        let url_failed = button.parentElement.getElementsByTagName('p')[0].innerText;
+
+
+        container.classList.toggle('dn');
+
+        if (url_success === '/login/') {
+            url_success = '/user/1';
+        }
+
+        if (button.innerHTML.trim() === "delete") {
+            pre_success.innerHTML = JSON.stringify([1], null, 4);
+            pre_failed.innerHTML = JSON.stringify([0], null, 4);
+            return;
+        }
+
+        if (button.innerHTML.trim() === "post") {
+            url_success += "1";
+        }
+        url_success = url_success.replace(':id', '1');
+        url_failed = url_failed.replace(':id', '0');
+        fetch(url_success, {
+            method: 'GET'
+        }).then(res => res.json()).then(data => {
+            pre_success.innerHTML = JSON.stringify(data, null, 4);
+        })
+        fetch(url_failed, {
+            method: button.innerHTML.trim().toLocaleUpperCase()
+        }).then(res => res.json()).then(data => {
+            pre_failed.innerHTML = JSON.stringify(data, null, 4);
+        })
+    }
+</script>

@@ -1,10 +1,35 @@
-<div class=" ">
+<div class=" ba bw1 br3 pa3 mv4 b--white-30 ">
     <div class=" flex">
-        <div class=" flex mr4-l mr4-m br2 mv2 methods methods-<%=Object.keys(req.methods)[0] %> code white ">
-            <p class=" ma-a f4">
-                <%=Object.keys(req.methods)[0] %>
-            </p>
-        </div>
+        <button
+            class="openReq ba bw0 pointer mr4-l mr4-m br2 mv2 methods methods-<%=Object.keys(req.methods)[0] %> code white "
+            onclick="reqButtonHandler(this)">
+            <%=Object.keys(req.methods)[0] %>
+        </button>
         <p class="<%=Object.keys(req.methods)[0] %> code "><%= modelPath + req.path %> </p>
     </div>
+    <div class="request-container dn ">
+        <div class="request-success overflow-auto">
+            <p class=" light-green code overflow-hidden">request ok: 200</p>
+            <pre class="show-request overflow-auto">
+                loading ...
+            </pre>
+        </div>
+        <div class="request-failed overflow-auto">
+            <p class=" light-red code overflow-auto">request fail: 4xx</p>
+            <pre class="show-request overflow-auto">
+                loading ...
+            </pre>
+        </div>
+    </div>
 </div>
+
+<!-- <script>
+    console.log('<%=Object.keys(req.methods)[0] %>');
+    if ('<%= Object.keys(req.methods)[0]%>'.toLocaleUpperCase() !== 'DELETE') {
+        fetch('<%= modelPath + req.path %>', {
+            method: '<%=Object.keys(req.methods)[0] %>'
+        }).then(res => res.json()).then(data => {
+            document.getElementsByClassName('request-success')[0].innerHTML = JSON.stringify(data, null, 4);
+        })
+    }
+</script> -->
